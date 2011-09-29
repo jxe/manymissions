@@ -25,7 +25,7 @@ class Role < Struct.new :instructions, :count, :offset
   end
 
   def to_cards(place, time)
-    modifier = if offset == 0 then '' elsif offset > 0 "#{offset.abs} minutes after " else "#{offset.abs} minutes before " end
+    modifier = if offset == 0 then '' elsif offset > 0; "#{offset.abs} minutes after " else "#{offset.abs} minutes before " end
     "WHEN: #{modifier}#{time}\nWHERE: #{place}\n\n#{instructions}\n\f" * count
   end
 
